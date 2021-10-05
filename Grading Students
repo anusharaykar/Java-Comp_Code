@@ -1,0 +1,69 @@
+/*
+Function Description
+
+Complete the function gradingStudents in the editor below.
+
+gradingStudents has the following parameter(s):
+
+    int grades[n]: the grades before rounding
+
+Returns
+
+    int[n]: the grades after rounding as appropriate
+    
+    Sample Input 0
+
+4
+73
+67
+38
+33
+
+Sample Output 0
+
+75
+67
+40
+33
+
+*/
+
+public static List<Integer> gradingStudents(List<Integer> grades) {
+        int r=0;
+        ArrayList<Integer> res=new ArrayList<>();
+        for(int i=0;i<grades.size();i++)
+        {
+            if(grades.get(i)>33){
+            r=grades.get(i)/5;
+            int a=5*(r+1);
+            r=a-grades.get(i);
+            if(r<3){
+            res.add(grades.get(i)+r);
+            }
+            else{
+                res.add(grades.get(i));
+            }
+            }else
+            {
+               res.add(grades.get(i)); 
+            }
+        }
+        return(res);
+
+    }
+    
+    OR
+    
+    public static List<Integer> gradingStudents(List<Integer> grades) {
+        List<Integer> ans = new ArrayList<Integer>();
+    for(int marks:grades){
+        if(marks < 38 || marks % 5 <= 2){
+            ans.add(marks);
+        }else if(marks % 5 > 2){
+            int add = 5 -(marks % 5);
+            ans.add(marks + add);
+        }
+    }
+    return ans;
+}
+
