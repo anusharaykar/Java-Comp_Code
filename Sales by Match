@@ -1,0 +1,55 @@
+/*
+There is a large pile of socks that must be paired by color. Given an array of integers representing the color of each sock, determine how many pairs of socks with matching colors there are.
+
+Function Description
+
+Complete the sockMerchant function in the editor below.
+
+sockMerchant has the following parameter(s):
+
+    int n: the number of socks in the pile
+    int ar[n]: the colors of each sock
+
+Returns
+
+    int: the number of pairs
+
+Sample Input
+
+STDIN                       Function
+-----                       --------
+9                           n = 9
+10 20 20 10 10 30 50 10 20  ar = [10, 20, 20, 10, 10, 30, 50, 10, 20]
+
+Sample Output
+
+3
+Explanation
+
+
+
+There are three pairs of socks.
+*/
+public class Solution {
+
+    // Complete the sockMerchant function below.
+    static int sockMerchant(int n, int[] ar) {
+       Arrays.sort(ar);
+       int pair=0;
+       int count=0;
+       //int num=0;
+       
+       for(int i=0;i<ar.length;i++)
+       {
+          if(i+1<ar.length && ar[i]==ar[i+1])
+          {
+            i=i+1;
+            pair+=1;  
+          }
+         
+   
+       }
+       return(pair);
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
